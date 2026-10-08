@@ -1,0 +1,95 @@
+data_dir: data
+reports_dir: reports
+
+collector:
+  awc_poll_seconds: 60
+  nws_tgftp_poll_seconds: 300
+  knmi_poll_seconds: 900
+  knmi_download_timeout_seconds: 120
+  wunderground_poll_seconds: 300
+  wunderground_browser_recycle_cycles: 24
+  forecast_poll_seconds: 300
+  forecast_concurrency: 2
+  forecast_retry_attempts: 3
+  forecast_retry_base_seconds: 2
+  forecast_retry_max_seconds: 30
+  market_discovery_seconds: 300
+  heartbeat_seconds: 60
+  minimum_free_disk_gb: 20
+  maximum_process_private_memory_mb: 4096
+  resource_check_seconds: 5
+  maximum_run_seconds: 21600
+  raw_fsync_every: 1000
+  raw_queue_max_events: 50000
+  raw_write_batch_events: 2000
+  raw_write_flush_seconds: 0.025
+  compress_rotated_files: false
+  compression_level: 6
+  request_timeout_seconds: 20
+  reconnect_min_seconds: 1
+  reconnect_max_seconds: 30
+
+market:
+  candidate_days_ahead: 3
+  reject_station_mismatch: true
+  reject_unit_mismatch: true
+  capture_mode: compact
+  compact_interval_seconds: 5.0
+  compact_depth_levels: 5
+  capture_raw_ws_in_bursts: false
+  burst_before_seconds: 30
+  burst_after_seconds: 30
+  burst_max_buffer_events: 10000
+  burst_max_buffer_bytes: 128000000
+  ws_max_queue_messages: 64
+  ws_max_message_bytes: 8000000
+  ws_application_ping_seconds: 10
+  ws_application_pong_timeout_seconds: 45
+
+execution:
+  markout_seconds: [5, 15, 30, 60, 300, 1800]
+  max_ws_health_age_seconds: 30
+
+predictive:
+  peer_max_age_minutes: 90
+  scheduled_interval_minutes: 15
+
+paper_trading:
+  enabled: true
+  edge_threshold: 0.08
+  persistence_minutes: 15
+  minimum_confirmations: 2
+  minimum_model_probability: 0.10
+  minimum_market_ask: 0.02
+  maximum_market_ask: 0.95
+  minimum_market_mid_mass: 0.95
+  requested_shares: 10
+  default_execution_buffer: 0.02
+  minimum_forecast_providers: 2
+  maximum_forecast_spread_c: 3.0
+  maximum_forecast_age_minutes: 45
+  minimum_peer_coverage: 0.25
+  maximum_observation_age_minutes: 90
+  minimum_calibration_days: 20
+  minimum_alpha_station_days: 20
+  maximum_entries_per_station_day: 1
+  model_trees: 100
+  ncei_source_weight: 0.5
+  recency_half_life_years: 6
+  excluded_calibration_dates: ["2026-05-19"]
+
+analysis:
+  max_day_start_lag_minutes: 90
+  continuity_gap_seconds: 180
+  resume_warmup_seconds: 600
+
+quality:
+  max_clock_step_ms: 100
+  max_ws_health_gap_seconds: 30
+  minimum_ws_health_coverage: 0.995
+  minimum_market_buckets: 2
+
+clickhouse:
+  enabled: false
+  flush_rows: 1000
+  flush_seconds: 2

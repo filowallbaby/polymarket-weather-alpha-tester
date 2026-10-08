@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "polymarket-weather-alpha-tester"
+version = "0.1.31"
+description = "Event-driven recorder and station-specific predictive-alpha tester for Polymarket weather markets."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+  "aiohttp>=3.10,<4",
+  "websockets>=13,<17",
+  "pydantic>=2.8,<3",
+  "PyYAML>=6.0,<7",
+  "orjson>=3.10,<4",
+  "typer>=0.12,<1",
+  "rich>=13.7,<16",
+  "python-dateutil>=2.9,<3",
+  "python-dotenv>=1.0,<2",
+  "paho-mqtt>=2.1,<3",
+]
+
+[project.optional-dependencies]
+analysis = [
+  "numpy>=2.0,<3",
+  "pandas>=2.2,<3",
+  "scikit-learn>=1.5,<2",
+  "pyarrow>=17,<21",
+]
+knmi = [
+  "numpy>=2.0,<3",
+  "xarray>=2024.6",
+  "netCDF4>=1.7",
+]
+wunderground = ["playwright>=1.46,<2"]
+clickhouse = ["clickhouse-connect>=0.8,<1"]
+dev = [
+  "pytest>=8,<9",
+  "pytest-asyncio>=0.24,<1",
+  "ruff>=0.6,<1",
+]
+all = [
+  "numpy>=2.0,<3",
+  "pandas>=2.2,<3",
+  "scikit-learn>=1.5,<2",
+  "pyarrow>=17,<21",
+  "xarray>=2024.6",
+  "netCDF4>=1.7",
+  "paho-mqtt>=2.1,<3",
+  "playwright>=1.46,<2",
+  "clickhouse-connect>=0.8,<1",
+]
+
+[project.scripts]
+weather-alpha = "weather_alpha.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

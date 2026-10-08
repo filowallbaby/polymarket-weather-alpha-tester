@@ -1,0 +1,93 @@
+stations:
+  amsterdam:
+    city: Amsterdam
+    city_slug: amsterdam
+    station_id: EHAM
+    station_name: Amsterdam Airport Schiphol
+    timezone: Europe/Amsterdam
+    latitude: 52.3086
+    longitude: 4.7639
+    elevation_m: -3.0
+    market_unit: C
+    expected_precision: 1.0
+    resolution_url: https://www.wunderground.com/history/daily/nl/schiphol/EHAM
+    sources:
+      wis2: false
+      awc: true
+      nws_tgftp: true
+      knmi: true
+      forecasts: true
+      wunderground: true
+    knmi_station_code: 6240
+    forecast_providers: [best_match, ecmwf, dwd_icon]
+    peer_station_ids: [EHRD, EHEH, EHLE]
+    polymarket_series_id: 11507
+
+  nyc:
+    city: NYC
+    city_slug: nyc
+    station_id: KLGA
+    station_name: LaGuardia Airport
+    timezone: America/New_York
+    latitude: 40.7769
+    longitude: -73.8740
+    elevation_m: 6.0
+    market_unit: F
+    expected_precision: 1.0
+    resolution_url: https://www.wunderground.com/history/daily/us/ny/new-york-city/KLGA
+    sources:
+      wis2: false
+      awc: true
+      nws_tgftp: true
+      knmi: false
+      forecasts: true
+      wunderground: true
+    forecast_providers: [best_match, ecmwf, gfs_hrrr]
+    peer_station_ids: [KJFK, KEWR, KTEB, KHPN]
+    polymarket_series_id: 10005
+
+  los_angeles:
+    city: Los Angeles
+    city_slug: los-angeles
+    station_id: KLAX
+    station_name: Los Angeles International Airport
+    timezone: America/Los_Angeles
+    latitude: 33.9416
+    longitude: -118.4085
+    elevation_m: 38.0
+    market_unit: F
+    expected_precision: 1.0
+    resolution_url: https://www.wunderground.com/history/daily/us/ca/los-angeles/KLAX
+    sources:
+      wis2: false
+      awc: true
+      nws_tgftp: true
+      knmi: false
+      forecasts: true
+      wunderground: true
+    forecast_providers: [best_match, ecmwf, gfs_hrrr]
+    peer_station_ids: [KHHR, KLGB, KBUR, KSMO]
+    polymarket_series_id: 11370
+
+  london:
+    city: London
+    city_slug: london
+    station_id: EGLC
+    station_name: London City Airport
+    timezone: Europe/London
+    latitude: 51.5053
+    longitude: 0.0553
+    elevation_m: 6.0
+    market_unit: C
+    expected_precision: 1.0
+    resolution_url: https://www.wunderground.com/history/daily/gb/london/EGLC
+    sources:
+      wis2: false
+      awc: true
+      nws_tgftp: true
+      knmi: false
+      forecasts: true
+      wunderground: true
+    forecast_providers: [best_match, ecmwf, dwd_icon]
+    peer_station_ids: [EGLL, EGKK, EGSS, EGGW]
+    polymarket_series_id: 10006
